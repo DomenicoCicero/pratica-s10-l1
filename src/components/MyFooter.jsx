@@ -1,5 +1,7 @@
 import { Component } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 class MyFooter extends Component {
   render() {

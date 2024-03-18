@@ -1,29 +1,21 @@
 import { Component } from "react";
-import { Button, Card, Col } from "react-bootstrap";
-// import CommentArea from "./CommentArea";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
 
 class SingleBook extends Component {
   state = {
-    selected: false,
     asin: this.props.book.asin,
   };
 
-  changeStateSelected = () => {
-    this.setState(
-      prevState => ({
-        selected: !prevState.selected,
-      }),
-      () => {
-        this.props.selected(this.state.selected);
-        this.sendAsin();
-      }
-    );
+  sendAsin = () => {
+    this.props.asinBook(this.state.asin);
   };
 
-  sendAsin = () => {
-    // if (this.state.selected) {
-    this.props.asinBook(this.state.asin);
-    // }
+  diselected = () => {
+    if (this.props.asinComparated === this.props.book.asin) {
+      this.props.asinBook(null);
+    }
   };
 
   render() {
@@ -32,17 +24,14 @@ class SingleBook extends Component {
 
     return (
       <Col xs={6} md={4} lg={3} xl={2} key={this.props.book.asin}>
-        <Card
-          className={`${this.props.card} ${
-            this.state.selected && this.props.asinComparated === this.props.book.asin ? "selected" : ""
-          }`}
-        >
+        <Card className={`${this.props.card} ${this.props.asinComparated === this.props.book.asin ? "selected" : ""}`}>
           <Card.Img
             variant="top"
             src={this.props.book.img}
             className={this.props.image}
             onClick={e => {
-              this.changeStateSelected();
+              this.sendAsin();
+              this.diselected();
             }}
           />
           <Card.Body>
@@ -54,7 +43,6 @@ class SingleBook extends Component {
             </Button>
           </Card.Body>
         </Card>
-        {/* {this.state.selected && <CommentArea asin={this.props.book.asin} />} */}
       </Col>
     );
   }

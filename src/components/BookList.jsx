@@ -1,19 +1,15 @@
 import { Component } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 import SingleBook from "./SingleBook";
 import CommentArea from "./CommentArea";
 
 class BookList extends Component {
   state = {
     search: "",
-    selected: false,
     asinBook: "",
-  };
-
-  handleSelected = data => {
-    this.setState({
-      selected: data,
-    });
   };
 
   handleAsin = data => {
@@ -66,7 +62,7 @@ class BookList extends Component {
                 })}
             </Row>
           </Col>
-          <Col xs={4}>{this.state.selected && <CommentArea asin={this.state.asinBook} />}</Col>
+          <Col xs={4}>{this.state.asinBook && <CommentArea asin={this.state.asinBook} />}</Col>
         </Row>
       </Container>
     );

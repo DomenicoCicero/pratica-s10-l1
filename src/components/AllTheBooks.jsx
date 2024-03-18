@@ -1,5 +1,9 @@
 import { Component } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import fantasy from "../books/fantasy.json";
 import history from "../books/history.json";
 import horror from "../books/horror.json";
