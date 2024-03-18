@@ -22,14 +22,6 @@ class BookList extends Component {
     });
   };
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.asinBook !== this.state.asinBook) {
-  //     if (this.state.selected === true) {
-  //       this.handleSelected(true);
-  //     }
-  //   }
-  // }
-
   render() {
     return (
       <Container>
